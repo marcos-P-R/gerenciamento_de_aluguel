@@ -12,29 +12,29 @@ import jakarta.persistence.Table;
 public class Endereco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    public Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "rua")
-    public String rua;
+    private String rua;
 
     @Column(name = "numero")
-    public String numero;
+    private String numero;
 
     @Column(name = "bairro")
-    public String bairro;
+    private String bairro;
 
     @Column(name = "cidade")
-    public String cidade;
+    private String cidade;
 
     @Column(name = "estado")
-    public String estado;
+    private String estado;
 
     @Column(name = "cep", nullable = false)
-    public String cep;
+    private String cep;
 
     @Column(name = "complemento")
-    public String complemento;
+    private String complemento;
 
     public Endereco() {
     }

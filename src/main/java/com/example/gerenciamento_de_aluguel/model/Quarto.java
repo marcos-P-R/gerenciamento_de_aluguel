@@ -2,30 +2,34 @@ package com.example.gerenciamento_de_aluguel.model;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "QUARTO_TB")
 public class Quarto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    public Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "num_do_quarto")
-    public String numeroDoQuarto;
+    private String numeroDoQuarto;
 
     @Column(name = "capacidade")
-    public Integer capacidade;
+    private Integer capacidade;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "imovel_id", referencedColumnName = "id")
-    public Imovel imovelId;
+    private Imovel imovelId;
 
     @Column(name = "ocupado")
-    public Boolean ocupado;
+    private Boolean ocupado;
 
     public Quarto() {
     }
