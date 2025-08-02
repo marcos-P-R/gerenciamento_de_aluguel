@@ -1,10 +1,13 @@
 package com.example.gerenciamento_de_aluguel.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,8 +21,9 @@ public class Imovel {
     @Column(name = "tipo")
     private String tipo;
 
-    @Column(name = "endereco_id")
-    private Integer enderecoId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id", referencedColumnName = "id")
+    private Endereco endereco;
 
     @Column(name = "capacidade")
     private Integer capacidade;
@@ -49,12 +53,12 @@ public class Imovel {
         this.tipo = tipo;
     }
 
-    public Integer getEnderecoId() {
-        return enderecoId;
+    public Endereco getEndereco() {
+        return endereco;
     }
 
-    public void setEnderecoId(Integer enderecoId) {
-        this.enderecoId = enderecoId;
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     public Integer getCapacidade() {
