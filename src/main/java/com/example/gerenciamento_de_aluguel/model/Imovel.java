@@ -37,6 +37,14 @@ public class Imovel {
     public Imovel() {
     }
 
+    public Imovel(String tipo, Endereco endereco, Integer capacidade, Integer numeroQuartos, Boolean disponivel) {
+        this.tipo = tipo;
+        this.endereco = endereco;
+        this.capacidade = capacidade;
+        this.numeroQuartos = numeroQuartos;
+        this.disponivel = disponivel == null ? true : disponivel;
+    }
+
     public Long getId() {
         return id;
     }
