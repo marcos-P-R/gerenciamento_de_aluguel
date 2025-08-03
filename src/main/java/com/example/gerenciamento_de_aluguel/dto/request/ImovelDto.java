@@ -1,5 +1,6 @@
 package com.example.gerenciamento_de_aluguel.dto.request;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -11,7 +12,7 @@ public record ImovelDto(
     String tipo,
 
     @NotNull(message = "O endereço do imóvel não pode ser vazio")
-    EnderecoDto endereco,
+    @Valid EnderecoDto endereco,
 
     @Min(value = 1, message = "A capacidade do imóvel deve ser pelo menos 1")
     @NotNull(message = "A capacidade do imóvel não pode ser vazia")
