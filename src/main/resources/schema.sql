@@ -1,4 +1,4 @@
-CREATE TABLE endereco_tb (
+CREATE TABLE IF NOT EXISTS endereco_tb (
     id SERIAL PRIMARY KEY,
     rua VARCHAR(255),
     numero VARCHAR(255),
@@ -9,7 +9,7 @@ CREATE TABLE endereco_tb (
     cep VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE imovel_tb (
+CREATE TABLE IF NOT EXISTS imovel_tb (
     id SERIAL PRIMARY KEY,
     tipo VARCHAR(255) NOT NULL,
     endereco_id INTEGER NOT NULL,
@@ -21,14 +21,14 @@ CREATE TABLE imovel_tb (
         ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE TABLE equipe_tb (
+CREATE TABLE IF NOT EXISTS equipe_tb (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     num_membros INTEGER NOT NULL,
     status_alocacao BOOLEAN NOT NULL
 );
 
-CREATE TABLE quarto_tb (
+CREATE TABLE IF NOT EXISTS quarto_tb (
     id SERIAL PRIMARY KEY,
     num_do_quarto VARCHAR(255) NOT NULL,
     capacidade INTEGER NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE quarto_tb (
         ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE TABLE alocacao_tb (
+CREATE TABLE IF NOT EXISTS alocacao_tb (
     id SERIAL PRIMARY KEY,
     equipe_id INTEGER NOT NULL,
     quarto_designado_id INTEGER NOT NULL,
