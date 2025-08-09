@@ -43,4 +43,9 @@ public class ImovelService {
     public List<Imovel> getAllImoveis() {
         return imovelRepository.findAll();
     }
+
+    public Imovel getImovelById(Long id) {
+        return imovelRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Imóvel não encontrado com o ID: " + id));
+    }
 }
