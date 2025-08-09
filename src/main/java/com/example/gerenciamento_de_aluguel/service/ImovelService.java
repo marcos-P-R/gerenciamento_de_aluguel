@@ -1,5 +1,7 @@
 package com.example.gerenciamento_de_aluguel.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.gerenciamento_de_aluguel.dto.request.ImovelDto;
@@ -36,5 +38,9 @@ public class ImovelService {
         );
 
         return imovelRepository.save(newImovel);
+    }
+
+    public List<Imovel> getAllImoveis() {
+        return imovelRepository.findAll();
     }
 }
